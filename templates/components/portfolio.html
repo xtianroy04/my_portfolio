@@ -1,0 +1,70 @@
+{% load static %}
+<article class="portfolio" data-page="portfolio">
+  <header>
+    <h2 class="h2 article-title">Portfolio</h2>
+  </header>
+
+  <section class="projects">
+    <ul class="filter-list">
+          <li class="filter-item">
+            <button class="active" data-filter-btn>My Works</button>
+          </li>
+
+          {% for cat in category %}
+          <li class="filter-item">
+            <button data-filter-btn>{{ cat.category_name }}</button>
+          </li>
+          {% endfor %}
+    </ul>
+
+    <div class="filter-select-box">
+      <button class="filter-select" data-select>
+        <div class="select-value" data-selecct-value>Select category</div>
+
+        <div class="select-icon">
+          <ion-icon name="chevron-down"></ion-icon>
+        </div>
+      </button>
+
+       <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-item>All</button>
+              </li>
+            {% for cat in category %}
+              <li class="select-item">
+                <button data-select-item>{{ cat.category_name }}</button>
+              </li>
+            {% endfor %}
+
+        </ul> 
+    </div>
+  
+    <ul class="project-list">
+      {% for i in project %}
+      <li
+        class="project-item active"
+        data-filter-item> 
+
+        <a href="{{ i.link }}">
+          <figure class="project-img">
+            <div class="project-item-icon-box">
+              <ion-icon name="eye-outline"></ion-icon>
+            </div>
+
+            <img src=".{{ i.project_img.url }}" alt="finance" loading="lazy" />
+          </figure>
+
+          <h3 class="project-title">
+            {{ i.project_name }}
+          </h3>
+          {% for j in i.category.all %}
+          <p class="project-category">{{ j.category_name }}</p>
+          {% endfor %}
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+  
+  </section>
+</article>

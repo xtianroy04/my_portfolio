@@ -1,0 +1,66 @@
+{% load static %}
+<article class="about active" data-page="about">
+    <header>
+      <h2 class="h2 article-title">About me</h2>
+    </header>
+
+    <section class="about-text">
+
+      <p>
+        {{ info.description }}
+      </p>
+
+    </section>
+
+    {% include 'components/hobby.html' %}
+   
+    <!--
+        - testimonials
+      -->
+     {% comment %} <section class="testimonials">
+
+        <h3 class="h3 testimonials-title">Testimonials</h3>
+
+        <ul class="testimonials-list has-scrollbar">
+         
+        </ul>
+
+      </section> {% endcomment %}
+
+    <!--
+        - testimonials modal
+      -->
+
+    <div class="modal-container" data-modal-container>
+      <div class="overlay" data-overlay></div>
+
+      <section class="testimonials-modal">
+        <button class="modal-close-btn" data-modal-close-btn>
+          <ion-icon name="close-outline"></ion-icon>
+        </button>
+
+      
+      </section>
+    </div>
+
+    <!--
+        - clients
+      -->
+      {% if clients %}
+      <section class="clients">
+
+        <h3 class="h3 clients-title">Clients</h3>
+
+        <ul class="clients-list has-scrollbar">
+          {% for i in clients %}
+          <li class="clients-item">
+            <a href="{{ i.link }}">
+              <img src="{{ i.image.url }}" alt="client logo">
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+
+      </section>
+    {% endif %}
+  </article>

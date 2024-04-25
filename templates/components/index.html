@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %} 
+
+{% block content %}
+<main>
+  {% include "partials/_side_bar.html" %}
+  <div class="main-content">
+    {% include "partials/_navbar.html" %}
+
+     <!--- #About -->
+    {% include 'components/about.html' %}
+   
+    <!--- #Resume-->
+    {% include 'components/resume.html' %}
+    
+
+    <!-- #PORTFOLIO -->
+    {% include 'components/portfolio.html' %}
+  
+
+    <!--- #BLOG -->
+    {% include 'components/blog.html' %}
+     
+
+    <!--- #CONTACT -->
+    {% include 'components/contact.html' %}
+  
+  </div>
+</main>
+<script>
+  
+</script>
+
+{% endblock %}

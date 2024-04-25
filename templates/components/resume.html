@@ -1,0 +1,110 @@
+{% load static %}
+<article class="resume" data-page="resume">
+    <header>
+      <h2 class="h2 article-title">Resume</h2>
+    </header>
+
+    <section class="timeline">
+      <div class="title-wrapper">
+        <div class="icon-box">
+          <ion-icon name="book-outline"></ion-icon>
+        </div>
+
+        <h3 class="h3">Education</h3>
+      </div>
+
+      <ol class="timeline-list">
+        {% for educ in education %}
+        <li class="timeline-item">
+          <h4 class="h4 timeline-item-title">
+            {{ educ.education_name}}
+          </h4>
+
+          <span>{{ educ.year }}</span>
+
+          <p class="timeline-text">
+            {{ educ.description }}
+          </p>
+        </li>
+        {% endfor %}
+
+      </ol>
+    </section>
+
+    <!-- <section class="timeline">
+
+        <div class="title-wrapper">
+          <div class="icon-box">
+            <ion-icon name="book-outline"></ion-icon>
+          </div>
+
+          <h3 class="h3">Experience</h3>
+        </div>
+
+        <ol class="timeline-list">
+
+          <li class="timeline-item">
+
+            <h4 class="h4 timeline-item-title">Creative director</h4>
+
+            <span>2015 — Present</span>
+
+            <p class="timeline-text">
+              Nemo enim ipsam voluptatem blanditiis praesentium voluptum delenit atque corrupti, quos dolores et qvuas
+              molestias
+              exceptur.
+            </p>
+
+          </li>
+
+          <li class="timeline-item">
+
+            <h4 class="h4 timeline-item-title">Art director</h4>
+
+            <span>2013 — 2015</span>
+
+            <p class="timeline-text">
+              Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
+              quas molestias
+              exceptur.
+            </p>
+
+          </li>
+
+          <li class="timeline-item">
+
+            <h4 class="h4 timeline-item-title">Web designer</h4>
+
+            <span>2010 — 2013</span>
+
+            <p class="timeline-text">
+              Nemo enims ipsam voluptatem, blanditiis praesentium voluptum delenit atque corrupti, quos dolores et
+              quas molestias
+              exceptur.
+            </p>
+
+          </li>
+
+        </ol>
+
+      </section> -->
+
+    <section class="skill">
+      <h3 class="h3 skills-title">My skills</h3>
+
+      <ul class="skills-list content-card">
+        {% for skill in skills %}
+        <li class="skills-item">
+          <div class="title-wrapper">
+            <h5 class="h5">{{ skill.skill_name }}</h5>
+            <data>{{ skill.percent }}%</data>
+          </div>
+
+          <div class="skill-progress-bg">
+            <div class="skill-progress-fill" style="width: {{ skill.percent }}%"></div>
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </article>
